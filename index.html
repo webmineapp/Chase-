@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সাদা ইস্টিশন</title>
+    <style>
+        /* পুরো স্ক্রিন সাদা রাখার জন্য CSS */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff; /* নিখাদ সাদা রঙ */
+            overflow: hidden; /* কোনো স্ক্রলবার থাকবে না */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* বিজ্ঞাপন ফ্রেমের স্টাইল */
+        #ad-frame {
+            border: none;
+            width: 728px;
+            height: 90px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- বিজ্ঞাপন প্রদর্শনের জন্য iframe -->
+    <iframe id="ad-frame"></iframe>
+
+    <script>
+        // বিজ্ঞাপনের HTML স্ট্রাকচার
+        const adContent = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <style>body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; }</style>
+            </head>
+            <body>
+                <script>
+                  atOptions = {
+                    'key' : '7920241d661982e3c0ec5e407c2aadef',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                  };
+                <\/script>
+                <script src="https://www.highrevenueformat.com/7920241d661982e3c0ec5e407c2aadef/invoke.js"><\/script>
+            </body>
+            </html>
+        `;
+
+        const iframe = document.getElementById('ad-frame');
+
+        // বিজ্ঞাপন লোড করার ফাংশন
+        function loadAd() {
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            iframeDoc.open();
+            iframeDoc.write(adContent);
+            iframeDoc.close();
+        }
+
+        // প্রথমবার লোড
+        loadAd();
+
+        // প্রতি ২ সেকেন্ড (২০০০ মিলি-সেকেন্ড) পর পর বিজ্ঞাপন পরিবর্তন/রিফ্রেশ হবে
+        setInterval(loadAd, 2000);
+    </script>
+
+</body>
+</html>
