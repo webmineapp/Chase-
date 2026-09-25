@@ -1,0 +1,1 @@
+A completely clean and minimal digital experience without any hassle or extra clutter. Free from unwanted scrolls or options, it offers you a pure and calming visual feel. A new station to simplify your moments.
